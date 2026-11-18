@@ -1,5 +1,7 @@
 #ifndef KERNEL_H
 #define KERNEL_H
+#define VGA_WIDTH  80
+#define VGA_HEIGHT 25
 #define VGA ((unsigned short *)0xB8000)
 #define COLOR 0x07
 static unsigned int vga_pos = 0;   // persists between calls

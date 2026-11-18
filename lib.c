@@ -7,19 +7,25 @@ void putstr(const char *s)
 }
 void clear(void)
 {
-    unsigned short blank = (COLOR << 8) | ' ';
-    for (int i = 0; i < 80 * 25; i++)
-        VGA[i] = blank;
-    vga_pos = 0;          // reset cursor to top-left after clearing
+    unsigned char *vga = (unsigned char *)0xB8000;   // byte pointer
+
+    for (int i = 0; i < VGA_WIDTH * VGA_HEIGHT; i++) {
+        vga[i * 2]     = ' ';      // character byte
+        vga[i * 2 + 1] = COLOR;    // color byte
+    }
+    vga_pos = 0;
 }
 
 void putchar(char c)
 {
+    unsigned char *vga = (unsigned char *)0xB8000;
+
     if (c == '\n') {
-        vga_pos = (vga_pos / 80 + 1) * 80;   // jump to start of next row
+        vga_pos = (vga_pos / VGA_WIDTH + 1) * VGA_WIDTH;   // jump to next line
     } else {
-        VGA[vga_pos] = (COLOR << 8) | c;      // draw the character
-        vga_pos++;                            // advance one cell
+        vga[vga_pos * 2]     = c;       // character byte
+        vga[vga_pos * 2 + 1] = COLOR;   // color byte
+        vga_pos++;
     }
 }
 

@@ -45,9 +45,9 @@ clean:
 
 # Remove everything built
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) kfs.iso iso/boot/kernel.bin
 
 # Rebuild from scratch
 re: fclean all
 
-.PHONY: all run clean fclean re
+.PHONY: all run iso clean fclean re
