@@ -20,7 +20,7 @@ void kmain(void)
     // putnbr(len);
     clear();
     print_banner();
-    putstr("\n  Welcome to Yel-bouk's kernel. Booting complete.\n");
+    putstr("\n  Welcome to Yel-bouk & Nihamila's kernel. Booting complete.\n");
     putchar('\n');
     putchar('\n');
     putstr("42\n");

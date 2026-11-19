@@ -4,6 +4,7 @@
 #define VGA_HEIGHT 25
 #define VGA ((unsigned short *)0xB8000)
 #define COLOR 0x07
+// #define COLOR 0x4F
 static unsigned int vga_pos = 0;   // persists between calls
 
 typedef unsigned char      uint8_t;
