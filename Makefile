@@ -5,7 +5,7 @@ LD      = ld
 
 # ---- Flags ----
 ASMFLAGS = -f elf32
-CFLAGS   = -m32 -ffreestanding -fno-stack-protector -fno-builtin
+CFLAGS   = -m32 -ffreestanding -fno-stack-protector -fno-builtin 
 LDFLAGS  = -m elf_i386 -T linker.ld
 
 # ---- Files ----
